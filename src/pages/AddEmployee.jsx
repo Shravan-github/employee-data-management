@@ -13,7 +13,7 @@ function AddEmployee() {
   const [employee, setEmployee] = useState({
     EmployeeId: "",
     EmpName: "",
-    Department: "",
+    Department: [],
     Salary: "",
     PhNumber: "",
     EmailId: "",
@@ -114,9 +114,15 @@ function AddEmployee() {
           />
         </Grid>
         <Grid item xs={6}>
-          <Button type="submit" color="primary" variant="contained">
-            Add Employee
-          </Button>
+          <Grid
+            item
+            xs={6}
+            style={{ display: "flex", justifyContent: "flex-end" }}
+          >
+            <Button type="submit" color="primary" variant="contained">
+              Add Employee
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </form>

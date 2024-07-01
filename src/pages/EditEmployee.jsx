@@ -11,28 +11,36 @@ function EditEmployee() {
   console.log("useParams", params);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const employee = useSelector((state) => state.employees.list);
+  let employee = useSelector((state) => state.employees.originalList);
+
   const [updatedEmployee, setUpdatedEmployee] = useState({
     EmployeeId: "",
     EmpName: "",
-    Department: "",
+    Department: [],
     Salary: "",
     PhNumber: "",
     EmailId: "",
     Address: "",
   });
 
+  const removeDuplicates = (array, key) => {
+    return [...new Map(array.map(item => [item[key], item])).values()];
+  };
+
+  const employees = removeDuplicates(employee, 'EmployeeId');
+  console.log(employees);
+
   useEffect(() => {
     console.log("employee", employee);
-    if (employee?.length && params) {
+    if (employee?.length && params?.EmployeeId) {
       setUpdatedEmployee(
-        employee.find((emp) => emp.EmployeeId == params?.EmployeeId)
+        employee.find((emp) => emp.EmployeeId == params.EmployeeId)
       );
       return;
     }
     console.log("Employees", employee);
     dispatch(fetchEmployees());
-  }, [employee]);
+  }, [employee, params, dispatch]);
 
   useEffect(() => {
     console.log("updatedEmployee", updatedEmployee);
@@ -47,7 +55,7 @@ function EditEmployee() {
     dispatch(updateEmployee(updatedEmployee));
     navigate("/");
   };
-  console.log("updatedEmployee", updatedEmployee);
+
   return (
     <form onSubmit={handleSubmit}>
       <Grid container sx={{ minHeight: "100vh" }}>
@@ -81,7 +89,7 @@ function EditEmployee() {
             data={employee}
             value={updatedEmployee["Department"]}
             onSelect={(departments) =>
-              setUpdatedEmployee({ ...employee, Department: departments })
+              setUpdatedEmployee({ ...updatedEmployee, Department: departments })
             }
           />
         </Grid>
@@ -92,7 +100,7 @@ function EditEmployee() {
             value={updatedEmployee["Salary"]}
             onChange={handleChange}
             required
-              sx={{ minWidth: "100%", padding: 1 }}
+            sx={{ minWidth: "100%", padding: 1 }}
           />
         </Grid>
         <Grid item xs={6}>
