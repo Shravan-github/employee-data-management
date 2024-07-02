@@ -13,6 +13,10 @@ function EditEmployee() {
   const navigate = useNavigate();
   let employee = useSelector((state) => state.employees.originalList);
 
+
+  // const employeeDuplicates = [...new set(employees.originalList)];
+  // console.log("employeeDuplicates", employeeDuplicates)
+
   const [updatedEmployee, setUpdatedEmployee] = useState({
     EmployeeId: "",
     EmpName: "",
@@ -23,12 +27,12 @@ function EditEmployee() {
     Address: "",
   });
 
-  const removeDuplicates = (array, key) => {
-    return [...new Map(array.map(item => [item[key], item])).values()];
-  };
+  // const removeDuplicates = (array, key) => {
+  //   return [...new Map(array.map(item => [item[key], item])).values()];
+  // };
 
-  const employees = removeDuplicates(employee, 'EmployeeId');
-  console.log(employees);
+  // const employees = removeDuplicates(employee, 'EmployeeId');
+  // console.log(employees);
 
   useEffect(() => {
     console.log("employee", employee);
@@ -134,9 +138,14 @@ function EditEmployee() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button type="submit" color="primary" variant="contained">
-            Update Employee
-          </Button>
+          <Grid
+            item xs={8}
+            style={{ display: "flex", justifyContent: "flex-end", marginLeft: "auto"}}
+          >
+            <Button type="submit" color="primary" variant="contained">
+              Add Employee
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </form>

@@ -113,11 +113,11 @@ function AddEmployee() {
             sx={{ minWidth: "100%", padding: 1 }}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Grid
             item
-            xs={6}
-            style={{ display: "flex", justifyContent: "flex-end" }}
+            xs={8}
+            style={{ display: "flex", justifyContent: "flex-end", marginTop:"10px" }}
           >
             <Button type="submit" color="primary" variant="contained">
               Add Employee
