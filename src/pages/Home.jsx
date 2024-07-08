@@ -12,7 +12,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchEmployees } from "../actions/employee";
-// import 'jspdf-autotable';
 import SearchIcon from "@mui/icons-material/Search";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
@@ -62,7 +61,7 @@ function Home() {
         <>
           <Button
             component={Link}
-            to={`/editEmployee/${params.row.EmployeeId}`}
+            to={`/edit-employee/${params.row.EmployeeId}`}
             color="primary"
           >
             Edit

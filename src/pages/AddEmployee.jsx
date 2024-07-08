@@ -117,7 +117,7 @@ function AddEmployee() {
           <Grid
             item
             xs={8}
-            style={{ display: "flex", justifyContent: "flex-end", marginTop:"10px" }}
+            style={{ display: "flex", justifyContent: "flex-end", marginTop:"25px" }}
           >
             <Button type="submit" color="primary" variant="contained">
               Add Employee

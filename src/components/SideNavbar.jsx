@@ -27,7 +27,6 @@ import logo from "./images/shravan_logo.jpg";
 import sslogo from "./images/shrava.png";
 import slogo from "./images/sra.png";
 
-
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -58,7 +57,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),   // necessary for content to be below app bar
+  padding: theme.spacing(0, 1), // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -127,14 +126,24 @@ export default function SideNavbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div" className="logo">
+          <Typography variant="h6" noWrap component="div" className="logo">
             <img src={logo} alt="logo" height="50px" />
-          </Typography> */}
+          </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <IconButton color="inherit" aria-label="home" component={Link} to="/">
+          <IconButton
+            color="inherit"
+            aria-label="home"
+            component={Link}
+            to="/home"
+          >
             <HomeIcon />
           </IconButton>
-          <IconButton color="inherit" aria-label="profile">
+          <IconButton
+            color="inherit"
+            aria-label="profile"
+            component={Link}
+            to="/profile"
+          >
             <ProfileIcon />
           </IconButton>
           <IconButton
@@ -150,10 +159,10 @@ export default function SideNavbar(props) {
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-          <Typography variant="h6" noWrap component="div" className="logo">
-            <img src={logo} alt="logo" height="40px" width="200px"/>
-          </Typography>
-             {/* <Typography variant="h6" noWrap component="div" className="logo">
+            <Typography variant="h6" noWrap component="div" className="logo">
+              <img src={logo} alt="logo" height="40px" width="200px" />
+            </Typography>
+            {/* <Typography variant="h6" noWrap component="div" className="logo">
             <img src={slogo} alt="logo" height="70px" width="200px" />
           </Typography> */}
             {theme.direction === "rtl" ? (
@@ -168,7 +177,6 @@ export default function SideNavbar(props) {
           open={open}
           optionSelected={optionSelected}
           setOptionSelected={setOptionSelected}
-          
         />
         <Divider />
       </Drawer>
@@ -217,7 +225,6 @@ export default function SideNavbar(props) {
 function SideBarItems({ open, setOptionSelected, optionSelected }) {
   return (
     <List>
-       
       {["Home", "Add Employee"].map((text, index) => (
         <ListItem
           key={text}
@@ -228,7 +235,7 @@ function SideBarItems({ open, setOptionSelected, optionSelected }) {
             backgroundColor: optionSelected == index ? "#1976d2" : "white",
           }}
           component={Link}
-          to={index === 0 ? "/" : "/addEmployee"}
+          to={index === 0 ? "/home" : "/add-employee"}
           onClick={() => setOptionSelected(index)}
         >
           {/* <Typography variant="h6" noWrap component="div" className="logo">

@@ -14,8 +14,7 @@ function EditEmployee() {
   let employee = useSelector((state) => state.employees.originalList);
 
 
-  // const employeeDuplicates = [...new set(employees.originalList)];
-  // console.log("employeeDuplicates", employeeDuplicates)
+
 
   const [updatedEmployee, setUpdatedEmployee] = useState({
     EmployeeId: "",
@@ -26,13 +25,9 @@ function EditEmployee() {
     EmailId: "",
     Address: "",
   });
+  console.log("updatedEmployee", updatedEmployee)
 
-  // const removeDuplicates = (array, key) => {
-  //   return [...new Map(array.map(item => [item[key], item])).values()];
-  // };
-
-  // const employees = removeDuplicates(employee, 'EmployeeId');
-  // console.log(employees);
+  
 
   useEffect(() => {
     console.log("employee", employee);
@@ -93,7 +88,9 @@ function EditEmployee() {
             data={employee}
             value={updatedEmployee["Department"]}
             onSelect={(departments) =>
+
               setUpdatedEmployee({ ...updatedEmployee, Department: departments })
+
             }
           />
         </Grid>
