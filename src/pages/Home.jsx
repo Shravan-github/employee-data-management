@@ -159,19 +159,7 @@ function Home() {
         />
       </div>
 
-      {/* <div>
-  
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-      
-</div> */}
+
 
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>{"Delete Employee"}</DialogTitle>
