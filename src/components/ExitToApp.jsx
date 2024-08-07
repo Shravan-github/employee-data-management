@@ -14,9 +14,8 @@ function ExitToApp() {
       <img src={thanksCard} alt="Thank You" height="400px" />
       <div container justifyContent="flex-end">
         <div item>
-          Signin Again
+          <h1> Signin Again</h1>
           <Link to="/">
-          <br></br>
             <button>Sign in</button>
           </Link>
         </div>
