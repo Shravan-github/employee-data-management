@@ -2,7 +2,7 @@ const { Password } = require("@mui/icons-material");
 const mongoose = require("mongoose");
 
 let Signup = new mongoose.Schema({
-  frirstName: {
+  firstName: {
     type: String,
     require: true,
   },
@@ -15,7 +15,7 @@ let Signup = new mongoose.Schema({
     require: true,
     unique: true,
   },
-  Password: {
+  password: {
     type: String,
     require: true,
   },

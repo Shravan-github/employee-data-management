@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
     req.user = decode.user;
     next();
   } catch (error) {
-    console.log(error);
+    console.log(error, "middleware");
     return res.status(500).send("server Error");
   }
 };
